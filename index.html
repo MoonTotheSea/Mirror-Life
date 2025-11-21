@@ -568,6 +568,75 @@
         height: 520px;
       }
     }
+
+    /* 把这段 CSS 加入你的样式表 */
+
+/* 名片容器 */
+.business-card-container {
+  width: 300px;
+  height: 180px;
+  perspective: 1000px; /* 3D 透视深度 */
+  cursor: pointer;
+  margin: 20px auto;
+}
+
+/* 名片本体 */
+.business-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d; /* 保持 3D 空间 */
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+/* 翻转状态 */
+.business-card.flipped {
+  transform: rotateY(180deg);
+}
+
+/* 正反面公共样式 */
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* 背面不可见 */
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Pixelify Sans', sans-serif;
+}
+
+/* 正面：干净、专业 */
+.card-front {
+  background: #e6e6e6; /* 纸张白 */
+  color: #333;
+  border: 1px solid #ccc;
+  /* 纸张纹理 */
+  background-image: linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, .05) 25%, rgba(0, 0, 0, .05) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, .05) 75%, rgba(0, 0, 0, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, .05) 25%, rgba(0, 0, 0, .05) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, .05) 75%, rgba(0, 0, 0, .05) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+}
+
+/* 背面：稍微脏一点，带有手写字 */
+.card-back {
+  background: #f0f0f0;
+  color: #333;
+  transform: rotateY(180deg); /* 默认背对屏幕 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 手写字效果 */
+.handwritten-note {
+  font-family: 'Courier New', monospace; /* 模拟手写或打字机 */
+  color: #d9534f; /* 红色墨水 */
+  font-size: 12px;
+  transform: rotate(-5deg); /* 稍微倾斜 */
+  border: 2px solid #d9534f;
+  padding: 10px;
+  opacity: 0.9;
+}
   </style>
 </head>
 <body>
